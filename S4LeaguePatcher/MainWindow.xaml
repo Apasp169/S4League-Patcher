@@ -1,0 +1,9 @@
+﻿<Window x:Class="S4LeaguePatcher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="S4 League Patcher" Height="600" Width="950"
+        ResizeMode="NoResize">
+    <Grid>
+        <ContentControl x:Name="MainContent" />
+    </Grid>
+</Window>

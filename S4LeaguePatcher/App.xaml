@@ -1,0 +1,43 @@
+﻿<Application x:Class="S4LeaguePatcher.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:S4LeaguePatcher.converters">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Application-wide styles can be defined here -->
+            <Style x:Key="ProgressBarStyle" TargetType="ProgressBar">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ProgressBar">
+                            <Grid>
+                                <Border x:Name="PART_Track"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="2" />
+                                <Border x:Name="PART_Indicator"
+                                        Background="{TemplateBinding Foreground}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="0"
+                                        CornerRadius="2"
+                                        HorizontalAlignment="Left">
+                                    <Border.Width>
+                                        <MultiBinding Converter="{StaticResource ProgressBarWidthConverter}">
+                                            <Binding Path="Value" RelativeSource="{RelativeSource TemplatedParent}" />
+                                            <Binding Path="Minimum" RelativeSource="{RelativeSource TemplatedParent}" />
+                                            <Binding Path="Maximum" RelativeSource="{RelativeSource TemplatedParent}" />
+                                            <Binding Path="ActualWidth" ElementName="PART_Track" />
+                                        </MultiBinding>
+                                    </Border.Width>
+                                </Border>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- Value converter for progress bar width -->
+            <converters:ProgressBarWidthConverter x:Key="ProgressBarWidthConverter" />
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

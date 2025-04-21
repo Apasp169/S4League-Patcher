@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net9.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="images\download_view_background.jpeg"/>
+        <Resource Include="images\download_view_background.jpeg"/>
+        <None Remove="images\play_view_background.jpg"/>
+        <Resource Include="images\play_view_background.jpg"/>
+    </ItemGroup>
+
+</Project>
